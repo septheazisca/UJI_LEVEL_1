@@ -1,3 +1,6 @@
+<?php
+    include 'koneksi.php' 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,41 +41,43 @@
     </div>
   </div>
 
-  <h3>Tambah Data Siswa</h3>
-  <h4><a href="pelanggan.html">[+] Tambah Baru</a></h4>
-  <table border="1">
-    <tr>
-      <th>NISN</th>
-      <th>NAMA</th>
-      <th>KELAS</th>
-      <th>JURUSAN</th>
-      <th>TELEPON</th>
-      <th>EMAIL</th>
-      <th>ALAMAT</th>
-      <th>ACTION</th>
-    </tr>
+  <div class="kotak-kanan">
+    <p>Tambah Data Siswa</p>
+    <a href="pelanggan.html" class="tambah-data">[+] Tambah Baru</a>
+    <table border="1">
+      <tr>
+        <th>NISN</th>
+        <th>NAMA</th>
+        <th>KELAS</th>
+        <th>JURUSAN</th>
+        <th>TELEPON</th>
+        <th>EMAIL</th>
+        <th>ALAMAT</th>
+        <th>ACTION</th>
+      </tr>
 
-    <?php
-      $sql = "SELECT * FROM dataanggota"; 
-      $qeury = mysqli_query($connect, $sql);
-      while($pel = mysqli_fetch_array($qeury)){ 
-        echo "
-        <tr>
-          <td>$pel[0]</td>
-          <td>$pel[1]</td>
-          <td>$pel[2]</td>
-          <td>$pel[3]</td>
-          <td>$pel[4]</td>
-          <td>$pel[5]</td>
-          <td>$pel[6]</td>
-          <td>
-            <a href='formedit.php?nisn=".$pel['nisn']."'>Edit</a>      
-            <a href='hapus.php?nisn=".$pel['nisn']."'>Hapus</a>
-          </td>
-      </tr>";
-      }
+      <?php
+        $sql = "SELECT * FROM dataanggota"; 
+        $qeury = mysqli_query($connect, $sql);
+        while($pel = mysqli_fetch_array($qeury)){ 
+          echo "
+          <tr>
+            <td>$pel[0]</td>
+            <td>$pel[1]</td>
+            <td>$pel[2]</td>
+            <td>$pel[3]</td>
+            <td>$pel[4]</td>
+            <td>$pel[5]</td>
+            <td>$pel[6]</td>
+            <td>
+              <a href='formedit.php?nisn=".$pel['nisn']."'>Edit</a>      
+              <a href='hapus.php?nisn=".$pel['nisn']."'>Hapus</a>
+            </td>
+        </tr>";
+        }
 
-    ?>
-  </table>
+      ?>
+    </table>
+  </div>
 </body>
 </html>
